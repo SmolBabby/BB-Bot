@@ -1,10 +1,10 @@
-## BB.js CHANGELOG
+# BB.js CHANGELOG
 
-#### 3.0.1 - 10/03/2021
+#### 2.7.1 - 10/03/2021
 Bug fixes.
 - Updated the *ud* command according to the new package update.
 
-#### 3.0.0 - 28/02/2021
+#### 2.7.0 - 28/02/2021
 The corrupted files has been recovered. Development is restarting.
 - Performance upgrades
     - Removed unused files
@@ -47,7 +47,7 @@ Bug fixes.
 - Added the ecomomy system: Users can now earn money by sending messages. 
 - Added the *Balance* command.
 
-### No logs from 2.1 to 2.5
+#### No logs from 2.1 to 2.5
 
 #### 2.0.0 4/10/2020
 * Entered 2.0.0.
