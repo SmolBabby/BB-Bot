@@ -2,7 +2,7 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-02 18:33:42
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 15:04:37
+ * @Last Modified time: 2023-04-03 15:36:45
  */
 
 import { Client, Events, ClientOptions, GatewayIntentBits, Collection } from "discord.js";
@@ -19,6 +19,7 @@ CLIENT.slashCommands = new Collection<string, SlashCommand>()
 CLIENT.commands = new Collection<string, Command>()
 CLIENT.cooldowns = new Collection<string, number>()
 
+console.clear();
 console.log("Bot is starting...");
 
 

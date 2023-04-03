@@ -2,7 +2,7 @@
  * @Author: MericcaN41
  * @Date:   2023-04-02 21:14:40
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 22:28:19
+ * @Last Modified time: 2023-04-03 15:56:27
  */
 
 import { SlashCommandBuilder, CommandInteraction, Collection, PermissionResolvable, Message, AutocompleteInteraction } from "discord.js";
@@ -22,6 +22,7 @@ export interface SlashCommand {
  */
 export interface Command {
     name: string,
+    description: string,
     execute: (message: Message, args: Array<string>) => void,
     permissions: Array<PermissionResolvable>,
     aliases: Array<string>,

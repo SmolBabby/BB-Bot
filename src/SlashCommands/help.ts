@@ -2,13 +2,13 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-03 12:54:43
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 14:14:06
+ * @Last Modified time: 2023-04-03 15:56:13
  */
 
 import { SlashCommandBuilder, ChannelType, TextChannel, EmbedBuilder, ColorResolvable } from "discord.js"
 import { readdirSync } from "fs";
 import { join } from "path";
-import { SlashCommand } from "../types/Commands";
+import { Command, SlashCommand } from "../types/Commands";
 import { letterCapitalize } from "../tools/stringTools"
 
 
@@ -41,6 +41,14 @@ const command: SlashCommand = {
             let command: SlashCommand = require(`${slashCommandsDir}/${file}`).default;
             helpEmbed.addFields({ name: `/${letterCapitalize(command.data.name)}`, value: command.data.description })
         });
+
+        // Chargement des commandes Message
+        readdirSync(commandsDir).forEach(file => {
+            if (!file.endsWith(".ts")) return;
+            let command: Command = require(`${commandsDir}/${file}`).default;
+            helpEmbed.addFields({ name: `/${letterCapitalize(command.name)}`, value: command.description })
+        });
+
 
         interaction.reply({ embeds: [helpEmbed], ephemeral: true });
     }
