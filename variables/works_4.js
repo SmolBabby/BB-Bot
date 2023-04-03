@@ -1,1 +1,0 @@
-module.exports = ['You worked and gained ']
