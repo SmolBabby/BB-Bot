@@ -2,7 +2,7 @@
  * @Author: MericcaN41
  * @Date:   2023-04-02 20:16:28
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 11:59:41
+ * @Last Modified time: 2023-04-03 12:15:42
  */
 
 import { Client, Routes, SlashCommandBuilder, ActivityType } from "discord.js";
@@ -25,27 +25,33 @@ export const commandHandler = async (client : Client) => {
     let slashCommandsDir = join(__dirname,"../slashCommands");
     let commandsDir = join(__dirname,"../commands");
 
+    // Chargement des commandes Slash
     readdirSync(slashCommandsDir).forEach(file => {
         if (!file.endsWith(".ts")) return;
         let command : SlashCommand = require(`${slashCommandsDir}/${file}`).default;
+        console.log(`Loading Slash command from ${file}`)
         slashCommands.push(command.data);
 
         client.slashCommands.set(command.data.name, command);
     });
 
-    
+    // Chargement des commandes Message
     readdirSync(commandsDir).forEach(file => {
         if (!file.endsWith(".ts")) return;
         let command : Command = require(`${commandsDir}/${file}`).default;
+        console.log(`Loading message command from ${file}`)
         commands.push(command);
+        
         client.commands.set(command.name, command);
     });
 
     
+    // Envoie des commandes à Discord
     const rest = new REST({version: "10"}).setToken(Token);
 
     // Routes.applicationCommands(clientID)
-    rest.put(Routes.applicationGuildCommands(ClientID, GuildID), {
+    console.log("Sending commands to discord...")
+    await rest.put(Routes.applicationGuildCommands(ClientID, GuildID), {
         body: slashCommands.map(command => command.toJSON())
     })
     .then((data : any) => {
@@ -54,4 +60,7 @@ export const commandHandler = async (client : Client) => {
     }).catch(e => {
         console.log(e);
     })
+
+    console.log("Commands sent!")
+    return;
 }

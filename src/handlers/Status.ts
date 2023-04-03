@@ -2,7 +2,7 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-03 11:48:57
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 12:06:23
+ * @Last Modified time: 2023-04-03 12:15:46
  */
 
 import { ActivityType } from "discord.js";
@@ -18,5 +18,7 @@ export const statusHandler = async (client) => {
     let i : number = Math.floor(Math.random() * statusList.length);
 
     await client.user.presence.set(statusList[i]);
-    console.log(client.user.presence);
+
+    console.log("Status set!")
+    return;
 }
