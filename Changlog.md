@@ -4,13 +4,16 @@
 
 ### 3.0
 
-#### 3.0.0 - xx/xx/2023
+#### 3.0.0 - 02/04/2023
 
 Complete rewrite of the bot's engine, such as:
 
 * BB is now using Typescript for his engine instead of Javascript.
 * Useless code, functions and variable are removed.
 * BB is now faster and more efficient.
+* BB can now use "Slash" commands
+
+More commands and previous features are planned to come back
 
 ## Version 2
 
@@ -22,7 +25,7 @@ Bug fixes.
 
 - Updated the *ud* command according to the new package update.
 
-#### 2.7.0 - 28/02/2021 
+#### 2.7.0 - 28/02/2021
 
 My hard drive has been corrupted. Fortunatly, the corrupted files has been recovered. Development is restarting.
 

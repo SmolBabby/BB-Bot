@@ -1,8 +1,8 @@
 /**
- * @Author: Loïc Boiteux
+ * @Author: MericcaN41
  * @Date:   2023-04-02 20:06:49
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 21:03:18
+ * @Last Modified time: 2023-04-02 23:26:28
  */
 
 const { Events } = require('discord.js');

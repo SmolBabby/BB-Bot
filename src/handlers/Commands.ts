@@ -1,8 +1,8 @@
 /**
- * @Author: Loïc Boiteux
+ * @Author: MericcaN41
  * @Date:   2023-04-02 20:16:28
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 22:54:21
+ * @Last Modified time: 2023-04-02 23:25:54
  */
 
 import { Client, Routes, SlashCommandBuilder } from "discord.js";
@@ -11,7 +11,7 @@ import { readdirSync } from "fs";
 import { join } from "path";
 import { Command, SlashCommand } from 'src/types/Commands';
 
-import { Token, clientID } from "../misc/config.json";
+import { Token, clientID, guildID } from "../misc/config.json";
 
 module.exports = async (client : Client) => {
     const slashCommands : SlashCommandBuilder[] = [];
@@ -39,8 +39,8 @@ module.exports = async (client : Client) => {
     
     const rest = new REST({version: "10"}).setToken(Token);
 
-    
-    rest.put(Routes.applicationCommands(clientID), {
+    // Routes.applicationCommands(clientID)
+    rest.put(Routes.applicationGuildCommands(clientID, guildID), {
         body: slashCommands.map(command => command.toJSON())
     })
     .then((data : any) => {

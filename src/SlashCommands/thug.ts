@@ -1,20 +1,19 @@
 /**
- * @Author: MericcaN41
- * @Date:   2023-04-02 19:58:12
+ * @Author: Loïc Boiteux
+ * @Date:   2023-04-02 23:19:41
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 23:26:13
+ * @Last Modified time: 2023-04-02 23:20:14
  */
-
 
 import { SlashCommandBuilder, ChannelType, TextChannel, EmbedBuilder } from "discord.js"
 import { SlashCommand } from "../types/Commands";
 
 const command : SlashCommand = {
     data: new SlashCommandBuilder()
-    .setName("ping")
-    .setDescription("pong!"),
+    .setName("thug")
+    .setDescription("You already know..."),
     execute: interaction => {
-        interaction.reply("Pong!");
+        interaction.reply("https://i.makeagif.com/media/2-10-2023/6KDnqu.gif");
     }
 }
 
