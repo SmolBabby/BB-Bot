@@ -2,10 +2,10 @@
  * @Author: MericcaN41
  * @Date:   2023-04-02 20:16:28
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 11:12:58
+ * @Last Modified time: 2023-04-03 11:59:41
  */
 
-import { Client, Routes, SlashCommandBuilder } from "discord.js";
+import { Client, Routes, SlashCommandBuilder, ActivityType } from "discord.js";
 import { REST } from "@discordjs/rest"
 import { readdirSync } from "fs";
 import { join } from "path";
@@ -14,7 +14,11 @@ import { Command, SlashCommand } from 'src/types/Commands';
 import { Token_1, Token_2, ClientID, GuildID } from "../misc/config.json";
 const Token = Token_1 + Token_2;
 
-module.exports = async (client : Client) => {
+/**
+ * Charge toutes les commandes du bot
+ * @param client Le client du bot
+ */
+export const commandHandler = async (client : Client) => {
     const slashCommands : SlashCommandBuilder[] = [];
     const commands : Command[] = [];
 
