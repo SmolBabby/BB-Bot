@@ -2,7 +2,7 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-02 18:33:42
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 12:34:17
+ * @Last Modified time: 2023-04-03 15:04:37
  */
 
 import { Client, Events, ClientOptions, GatewayIntentBits, Collection } from "discord.js";
@@ -39,7 +39,7 @@ CLIENT.on(Events.InteractionCreate, async interaction => {
 		return;
 	}
 
-	// Tentative d'exécution de la commande
+	// Exécution de la commande
 	try {
 		await command.execute(interaction);
 	} catch (error) {

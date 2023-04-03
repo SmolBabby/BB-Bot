@@ -2,11 +2,13 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-03 11:48:57
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 12:51:33
+ * @Last Modified time: 2023-04-03 15:27:47
  */
 
 import { ActivityType } from "discord.js";
 import statusList from "../misc/status.json";
+
+import { colourify } from "../tools/colourify";
 
 /**
  * Choisi un status au hasard du fichier "status.json" et l'applique
@@ -19,6 +21,6 @@ export const statusHandler = async (client) => {
 
     await client.user.presence.set(statusList[i]);
 
-    console.log("* Status set!")
+    console.log(colourify('text', "* "), colourify('success', "Status set!"))
     return;
 }
