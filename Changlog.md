@@ -6,7 +6,7 @@
 
 #### 3.0.1 - 04/04/2023
 
-Optimization and rework of the dev-tools and functions.
+Optimization and added the help menu.
 
 #### 3.0.0 - 02/04/2023
 
