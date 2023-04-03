@@ -1,18 +1,22 @@
 /**
  * @Author: Loïc Boiteux
- * @Date:   2023-04-02 19:45:12
+ * @Date:   2023-04-02 19:58:12
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 19:45:21
+ * @Last Modified time: 2023-04-02 22:39:19
  */
 
-import { Client } from "discord.js";
+import { Events } from "discord.js";
 
-export default (client: Client): void => {
-    client.on("ready", async () => {
-        if (!client.user || !client.application) {
-            return;
-        }
+const handler = require("../handlers/Commands");
 
-        console.log(`${client.user.username} is online`);
-    });
-}; 
+module.exports = {
+	name: Events.ClientReady,
+	once: true,
+	async execute(client) {
+
+		console.log("LOADING COMMANDS")
+		await handler(client);
+
+		console.log(`Ready! Logged in as ${client.user.tag}`);
+	},
+};

@@ -2,24 +2,49 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-02 18:33:42
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 19:46:09
+ * @Last Modified time: 2023-04-02 23:06:29
  */
-import { Client, Events, ClientOptions } from "discord.js";
 
-import ready from "./events/ready";
-const CONFIG = require("../misc/config.json");
+import { Client, Events, ClientOptions, GatewayIntentBits, Collection } from "discord.js";
+import { Token, clientID } from "./misc/config.json";
+import { SlashCommand, Command } from "./types/Commands";
+
+const Ready = require("./events/ready")
+
+
+const CLIENT = new Client({
+    intents: [GatewayIntentBits.Guilds]
+});
+CLIENT.slashCommands = new Collection<string, SlashCommand>()
+CLIENT.commands = new Collection<string, Command>()
+CLIENT.cooldowns = new Collection<string, number>()
 
 console.log("Bot is starting...");
- 
-const CLIENT = new Client({
-    intents: []
+
+
+CLIENT.once(Events.ClientReady, c => {
+    Ready.execute(CLIENT);
 });
 
 
-ready(CLIENT);
+// Receiving command interactions
+CLIENT.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = interaction.client.slashCommands.get(interaction.commandName);
+
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(`Error executing ${interaction.commandName}`);
+		console.error(error);
+	}
+});
 
 // Log in to Discord with your client's token
-CLIENT.login(CONFIG.token);
-
-
-console.log(CLIENT);
+CLIENT.login(Token);
