@@ -2,15 +2,15 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-02 18:33:42
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 23:06:29
+ * @Last Modified time: 2023-04-03 11:13:02
  */
 
 import { Client, Events, ClientOptions, GatewayIntentBits, Collection } from "discord.js";
-import { Token, clientID } from "./misc/config.json";
+import { Token_1, Token_2, ClientID, GuildID } from "./misc/config.json";
 import { SlashCommand, Command } from "./types/Commands";
 
 const Ready = require("./events/ready")
-
+const Token = Token_1 + Token_2;
 
 const CLIENT = new Client({
     intents: [GatewayIntentBits.Guilds]

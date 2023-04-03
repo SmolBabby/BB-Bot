@@ -130,7 +130,7 @@ dist
 .pnp.*
 
 # Specific paths
-config.json
+# config.json
 /node_modules/
 /prod/
 .env
