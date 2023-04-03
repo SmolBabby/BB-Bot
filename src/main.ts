@@ -2,7 +2,7 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-02 18:33:42
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 11:13:02
+ * @Last Modified time: 2023-04-03 12:34:17
  */
 
 import { Client, Events, ClientOptions, GatewayIntentBits, Collection } from "discord.js";
@@ -33,11 +33,13 @@ CLIENT.on(Events.InteractionCreate, async interaction => {
 
 	const command = interaction.client.slashCommands.get(interaction.commandName);
 
+	// Si la commande n'est pas trouvée
 	if (!command) {
 		console.error(`No command matching ${interaction.commandName} was found.`);
 		return;
 	}
 
+	// Tentative d'exécution de la commande
 	try {
 		await command.execute(interaction);
 	} catch (error) {

@@ -4,6 +4,10 @@
 
 ### 3.0
 
+#### 3.0.1 - 04/04/2023
+
+Optimization and rework of the dev-tools and functions.
+
 #### 3.0.0 - 02/04/2023
 
 Complete rewrite of the bot's engine, such as:
@@ -13,7 +17,7 @@ Complete rewrite of the bot's engine, such as:
 * BB is now faster and more efficient.
 * BB can now use "Slash" commands
 
-More commands and previous features are planned to come back
+The changes are due to the change in the discord API. More commands and previous features are planned to come back
 
 ## Version 2
 

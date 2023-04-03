@@ -2,7 +2,7 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-02 23:19:41
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-02 23:20:14
+ * @Last Modified time: 2023-04-03 13:59:39
  */
 
 import { SlashCommandBuilder, ChannelType, TextChannel, EmbedBuilder } from "discord.js"
