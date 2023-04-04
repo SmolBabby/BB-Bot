@@ -2,7 +2,7 @@
  * @Author: MericcaN41
  * @Date:   2023-04-02 20:16:28
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 15:27:12
+ * @Last Modified time: 2023-04-03 23:22:36
  */
 
 // Packages
@@ -13,6 +13,7 @@ import { join } from "path";
 import { Command, SlashCommand } from '../types/Commands';
 
 import { colourify } from "../tools/colourify";
+import { sleep } from "../tools/sleep";
 
 
 // Constantes
@@ -31,6 +32,7 @@ export const commandHandler = async (client : Client) => {
     let commandsDir = join(__dirname,"../commands");
 
     // Chargement des commandes Slash
+    console.log(colourify('text', "* "), `Loading slash commands from files...`);
     readdirSync(slashCommandsDir).forEach(file => {
         if (!file.endsWith(".ts")) return;
         let command : SlashCommand = require(`${slashCommandsDir}/${file}`).default;
@@ -40,7 +42,11 @@ export const commandHandler = async (client : Client) => {
         client.slashCommands.set(command.data.name, command);
     });
 
+    // Artificial time cos it looks cool af
+    await sleep(1000);
+
     // Chargement des commandes Message
+    console.log(colourify('text', "* "), `Loading message commands from files...`);
     readdirSync(commandsDir).forEach(file => {
         if (!file.endsWith(".ts")) return;
         let command : Command = require(`${commandsDir}/${file}`).default;
@@ -50,22 +56,29 @@ export const commandHandler = async (client : Client) => {
         client.commands.set(command.name, command);
     });
 
+    // Artificial time cos it looks cool af
+    await sleep(1000);
     
     // Envoie des commandes à Discord
-    const rest = new REST({version: "10"}).setToken(Token);
+    console.log(colourify('text', "* "), "Sending commands to Discord...");
+    
+    // Artificial time cos it looks cool af
+    await sleep(4000);
 
     // Routes.applicationCommands(clientID)
-    console.log(colourify('text', "* "), "Sending commands to Discord...")
+    const rest = new REST({version: "10"}).setToken(Token);
     await rest.put(Routes.applicationGuildCommands(ClientID, GuildID), {
         body: slashCommands.map(command => command.toJSON())
     })
     .then((data : any) => {
         console.log(colourify('text', "* "), `Successfully loaded ${colourify('number', data.length)} slash command(s)`);
-        console.log(colourify('text', "* "), `Successfully loaded ${colourify('number', commands.length)} command(s)`);
+        console.log(colourify('text', "* "), `Successfully loaded ${colourify('number', commands.length)} message command(s)`);
     }).catch(e => {
         console.log(e);
     })
 
-    console.log(colourify('text', "* "), colourify('success', "Commands sent!"))
+    console.log(colourify('text', "* "), colourify('success', "Commands sent!"));
+    // Artificial time cos it looks cool af
+    await sleep(750);
     return;
 }
