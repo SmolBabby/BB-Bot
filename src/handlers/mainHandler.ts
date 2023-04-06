@@ -2,7 +2,7 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-03 11:17:25
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 23:23:13
+ * @Last Modified time: 2023-04-06 15:33:55
  */
 
 import { colourify } from "../tools/colourify";
@@ -30,13 +30,13 @@ module.exports = async (client) => {
     console.log(colourify('text', "* "), `Booting up ${colourify('variable', "commandsHandler.ts")}`)
 
     // Artificial time cos it looks cool af
-    await sleep(1500);
+    await sleep(1500, true);
     await commandHandler(client);
 
     console.log(colourify('text', "* "), `Booting up ${colourify('variable', "statusHandler.ts")}`)
     
     // Artificial time cos it looks cool af
-    await sleep(1500);
+    await sleep(1500, true);
     await statusHandler(client);
 
     // Artificial time cos it looks cool af

@@ -1,19 +1,18 @@
-/**
+/*
  * @Author: Loïc Boiteux
  * @Date:   2023-04-03 23:12:44
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 23:21:55
+ * @Last Modified time: 2023-04-06 15:34:28
  */
 
-
-const SickLoader : boolean = true;
+// Variable de debug : Est-ce que sleep est actif ou non
+const SickLoader : boolean = false;
 
 /**
- * Atttend un moment donné en paramètre.
- * @param ms Le temps d'attente (En ms)
+ * Atttend un moment donné en paramètre avant de poursuivre l'exécution
+ * @param delayMS Le temps d'attente (En ms)
  */
-export function sleep(ms) {
-    
-    if (!SickLoader) { return }
-    return new Promise(resolve => setTimeout(resolve, ms));
+export function sleep(delayMS: number, forceWait?: boolean) {
+    if (!forceWait && !SickLoader) { return }
+    return new Promise(resolve => setTimeout(resolve, delayMS));
 }

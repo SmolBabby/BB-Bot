@@ -2,7 +2,7 @@
  * @Author: MericcaN41
  * @Date:   2023-04-02 20:16:28
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-03 23:22:36
+ * @Last Modified time: 2023-04-06 15:34:23
  */
 
 // Packages
@@ -63,7 +63,7 @@ export const commandHandler = async (client : Client) => {
     console.log(colourify('text', "* "), "Sending commands to Discord...");
     
     // Artificial time cos it looks cool af
-    await sleep(4000);
+    await sleep(3000, true);
 
     // Routes.applicationCommands(clientID)
     const rest = new REST({version: "10"}).setToken(Token);
