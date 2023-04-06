@@ -2,12 +2,12 @@
  * @Author: MericcaN41
  * @Date:   2023-04-03 15:04:14
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-06 15:29:46
+ * @Last Modified time: 2023-04-06 15:50:02
  */
 
 import chalk from "chalk";
 
-type colourType = "text" | "success" | "variable" | "number" | "error" | "special"
+type colourType = "text" | "success" | "variable" | "number" | "error" | "special" | "unique"
 
 const themeColours = {
     text: "#ff8e4d",
@@ -15,7 +15,8 @@ const themeColours = {
     variable: "FFDF00",
     number: "#00FFFF",
     error: "#FF0000",
-    special: "#FFC0CB"
+    special: "#FFC0CB",
+    unique: "DE545B"
 }
 
 /**

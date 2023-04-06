@@ -2,11 +2,11 @@
  * @Author: Loïc Boiteux
  * @Date:   2023-04-03 23:12:44
  * @Last Modified by:   Loïc Boiteux
- * @Last Modified time: 2023-04-06 15:34:28
+ * @Last Modified time: 2023-04-06 15:54:00
  */
 
 // Variable de debug : Est-ce que sleep est actif ou non
-const SickLoader : boolean = false;
+const SickLoader : boolean = true;
 
 /**
  * Atttend un moment donné en paramètre avant de poursuivre l'exécution
