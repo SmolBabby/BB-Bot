@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/main.ts"
+    "start": "ts-node src/main.ts",
+    "auto-start": "nodemon src/main.ts"
   },
   "author": "Loïc Boiteux",
   "license": "ISC",
@@ -15,7 +16,8 @@
     "discord-api-types": "^0.37.37",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.0.3",
+    "node-fetch": "^2.6.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",
