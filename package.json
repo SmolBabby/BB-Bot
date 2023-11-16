@@ -1,28 +1,14 @@
 {
   "name": "bb-bot",
-  "version": "3.0.2",
-  "description": "",
+  "version": "4.0.0",
+  "description": "A small side project",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/main.ts",
-    "auto-start": "nodemon src/main.ts"
+    "start": ""
   },
   "author": "Loïc Boiteux",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/builders": "^1.6.1",
-    "@discordjs/rest": "^1.7.0",
-    "chalk": "^4.1.2",
-    "discord-api-types": "^0.37.37",
-    "discord.js": "^14.9.0",
-    "dotenv": "^16.0.3",
-    "mongoose": "^7.0.3",
-    "node-fetch": "^2.6.9"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.45",
-    "nodemon": "^2.0.22",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.3"
+    "discord.js": "^14.14.1"
   }
 }
