@@ -1,4 +1,4 @@
-import { EventType } from "../structures/Events";
+import { EventType } from "../structures/Event";
 
 export default new EventType("ready", () =>
 {

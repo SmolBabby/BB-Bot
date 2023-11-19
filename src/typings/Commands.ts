@@ -1,4 +1,4 @@
-import { ChatInputApplicationCommandData, CommandInteraction, CommandInteractionOptionResolver, PermissionOverwrites, PermissionResolvable } from "discord.js";
+import { GuildMember, ChatInputApplicationCommandData, CommandInteraction, CommandInteractionOptionResolver, PermissionOverwrites, PermissionResolvable } from "discord.js";
 import { ExtendedClient } from "../structures/Client";
 
 
@@ -13,12 +13,14 @@ import { ExtendedClient } from "../structures/Client";
  *  }
  * }
  */
-
+export interface ExtendedInteraction extends CommandInteraction {
+    member: GuildMember;
+}
 
 interface RunOptions 
 {
     client: ExtendedClient,
-    InteractionCollector: CommandInteraction,
+    interaction: CommandInteraction,
     args: CommandInteractionOptionResolver
 }
 

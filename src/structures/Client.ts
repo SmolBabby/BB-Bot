@@ -3,7 +3,7 @@ import { CommandType } from "../typings/Commands"
 import { glob } from "glob";
 import { promisify } from "util";
 import { RegisterCommandsOptions } from "../typings/client";
-import { EventType } from "./Events";
+import { EventType } from "./Event";
 
 
 const GLOB_PROMISE = promisify(glob);
