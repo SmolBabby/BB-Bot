@@ -8,8 +8,12 @@ const TOKEN = process.env.botToken;
 const CLIENT = new Client({ intents: 32767});
 
 CLIENT.commands = new Collection();
-HANDLER.loadCommandsFromFiles(CLIENT.commands);
-HANDLER.registerCommands();
+
+(async () => 
+{
+    await HANDLER.loadCommandsFromFiles(CLIENT.commands);
+    await HANDLER.registerCommands();
+})();
 
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
 CLIENT.once(Events.ClientReady, c => {

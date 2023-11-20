@@ -5,7 +5,7 @@ import path from 'node:path';
 
 module.exports = 
 {
-    loadCommandsFromFiles: (commands: Collection<string, any>) => 
+    loadCommandsFromFiles: async (commands: Collection<string, any>) => 
     {
 
         const foldersPath = path.join(__dirname, '../commands');
@@ -32,7 +32,7 @@ module.exports =
         }
     },
 
-    registerCommands: () =>
+    registerCommands: async () =>
     {
         const commands = [];
         // Grab all the command folders from the commands directory you created earlier
