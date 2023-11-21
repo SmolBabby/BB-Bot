@@ -11,8 +11,16 @@ CLIENT.commands = new Collection();
 
 (async () => 
 {
+    console.info("=== BB-BOT ===");
+
+    // Swag points
+    await new Promise(r => setTimeout(r, 1000));
+
     await HANDLER.loadCommandsFromFiles(CLIENT.commands);
     await HANDLER.registerCommands();
+    
+    // Log in to Discord with your client's token
+    CLIENT.login(TOKEN);
 })();
 
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
@@ -42,5 +50,3 @@ CLIENT.on(Events.InteractionCreate, async interaction => {
 });
 
 
-// Log in to Discord with your client's token
-CLIENT.login(TOKEN);
