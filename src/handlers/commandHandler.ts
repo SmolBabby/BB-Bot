@@ -18,15 +18,13 @@ module.exports =
             console.info(`[*] Reading commands in folder "${folder}"`);
             for (const file of commandFiles) {
                 const filePath = path.join(commandsPath, file);
-                console.info(`[*] Reading ${filePath}`);
+                // console.info(`[*] Reading ${filePath}`);
 
                 const command = require(filePath);
                 // Set a new item in the Collection with the key as the command name and the value as the exported module
                 if ('data' in command && 'execute' in command) {
                     console.info(`[+] Loading command ${command.data.name}.ts`);
                     commands.set(command.data.name, command);
-                } else {
-                    console.warn(`[-] The command at ${filePath} is missing a required "data" or "execute" property`);
                 }
             }
         }
@@ -68,7 +66,7 @@ module.exports =
                 );
                 
 
-                console.log(`[+] Successfully reloaded ${data.length} application (/) commands.`);
+                console.log(`Successfully reloaded ${data.length} application (/) commands.`);
             } catch (error) {
                 // And of course, make sure you catch and log any errors!
                 console.error(error);
