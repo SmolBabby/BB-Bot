@@ -13,13 +13,16 @@ module.exports = {
 
 
         const TERM = interaction.options.getString('term');
-
+        
         ud.define(TERM, (error, results) => {
             if (error) {
-              console.error(`define (callback) error - ${error.message}`)
+              console.error(`define (callback) error - ${error.message}`);
+              interaction.reply({ content: error.message, ephemeral: true });
               return
             }
-          
+            
+
+
             var result = Object.entries(results[0]);
             var definition = result[0];
             var word = result[5];
