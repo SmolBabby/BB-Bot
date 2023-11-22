@@ -1,4 +1,5 @@
 import { SlashCommandBuilder, ChannelType, TextChannel, EmbedBuilder, ColorResolvable, Client } from "discord.js"
+import { isUndefined } from "node:util";
 const ud = require('urban-dictionary')
 
 module.exports = {
@@ -13,21 +14,25 @@ module.exports = {
 
 
         const TERM = interaction.options.getString('term');
-
+        
         ud.define(TERM, (error, results) => {
             if (error) {
-              console.error(`define (callback) error - ${error.message}`)
+              console.error(`define (callback) error - ${error.message}`);
+              interaction.reply({ content: error.message, ephemeral: true });
               return
             }
-          
+            
+
+
             var result = Object.entries(results[0]);
             var definition = result[0];
             var word = result[5];
-            var examples = results[9];
+            var examples = results[8];
 
+
+            examples = examples == undefined ? "(No examples available)" : examples.example
             word.shift();
             definition.shift();
-            examples = examples.example
 
             // Embed du menu d'aide
             const udEmbed = new EmbedBuilder()
